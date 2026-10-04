@@ -1,0 +1,3158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tabina Mauliddya Balqiis — Portfolio</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Trebuchet MS", Arial, sans-serif;
+    background:#fffafd;
+    color:#514957;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   DREAMY BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-20;
+
+    background:
+        radial-gradient(circle at 5% 10%,
+        rgba(255,190,215,.38),
+        transparent 25%),
+
+        radial-gradient(circle at 95% 8%,
+        rgba(196,205,255,.42),
+        transparent 25%),
+
+        radial-gradient(circle at 10% 75%,
+        rgba(190,235,255,.38),
+        transparent 27%),
+
+        radial-gradient(circle at 90% 80%,
+        rgba(230,205,255,.38),
+        transparent 28%);
+}
+
+
+/* =========================================================
+   FLOATING CLOUDS
+========================================================= */
+
+.cloud{
+    position:fixed;
+    width:150px;
+    height:45px;
+
+    background:rgba(255,255,255,.65);
+
+    border-radius:50px;
+
+    filter:blur(1px);
+
+    pointer-events:none;
+
+    z-index:-5;
+}
+
+.cloud::before,
+.cloud::after{
+    content:"";
+    position:absolute;
+    background:inherit;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:65px;
+    height:65px;
+    left:25px;
+    bottom:10px;
+}
+
+.cloud::after{
+    width:80px;
+    height:80px;
+    right:20px;
+    bottom:5px;
+}
+
+.cloud.one{
+    top:17%;
+    left:-45px;
+    animation:cloudMove 18s infinite alternate ease-in-out;
+}
+
+.cloud.two{
+    top:62%;
+    right:-50px;
+    transform:scale(.8);
+    animation:cloudMove2 23s infinite alternate ease-in-out;
+}
+
+@keyframes cloudMove{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(100px);
+    }
+}
+
+@keyframes cloudMove2{
+    from{
+        transform:translateX(0) scale(.8);
+    }
+
+    to{
+        transform:translateX(-90px) scale(.8);
+    }
+}
+
+
+/* =========================================================
+   FLOATING SPARKLES
+========================================================= */
+
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:-2;
+
+    color:#dfa0bf;
+
+    font-size:20px;
+
+    opacity:.65;
+
+    animation:
+        sparkleFloat 4s infinite ease-in-out;
+}
+
+.s1{
+    top:20%;
+    left:7%;
+}
+
+.s2{
+    top:40%;
+    right:8%;
+    animation-delay:1s;
+}
+
+.s3{
+    top:72%;
+    left:8%;
+    animation-delay:2s;
+}
+
+.s4{
+    top:82%;
+    right:10%;
+    animation-delay:1.5s;
+}
+
+@keyframes sparkleFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(12deg);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header{
+    position:fixed;
+
+    top:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1120px,92%);
+
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 20px;
+
+    background:rgba(255,255,255,.78);
+
+    backdrop-filter:blur(22px);
+
+    border:
+        1px solid
+        rgba(224,192,210,.65);
+
+    border-radius:30px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(135,100,130,.12);
+}
+
+.logo{
+    font-family:Georgia,serif;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    color:#dc82ac;
+}
+
+.logo span{
+    color:#9b91df;
+}
+
+nav ul{
+    display:flex;
+
+    list-style:none;
+
+    gap:23px;
+}
+
+nav a{
+    font-size:12px;
+
+    font-weight:bold;
+
+    color:#776f7d;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#dd80aa;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    max-width:1150px;
+
+    min-height:100vh;
+
+    margin:auto;
+
+    padding:
+        155px 25px
+        90px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        9px 16px;
+
+    background:#fff;
+
+    border:
+        1px solid
+        #f1cfdf;
+
+    border-radius:30px;
+
+    color:#d979a4;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(220,150,180,.12);
+
+    animation:
+        fadeUp .8s ease both;
+}
+
+.hero h1{
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(58px,8vw,100px);
+
+    line-height:.95;
+
+    color:#514957;
+
+    margin:
+        28px 0 20px;
+
+    animation:
+        fadeUp .9s .1s ease both;
+}
+
+.hero h1 span{
+
+    color:#dc88b0;
+
+    font-style:italic;
+}
+
+.hero-subtitle{
+
+    font-size:21px;
+
+    color:#8c82c9;
+
+    font-weight:bold;
+
+    margin-bottom:22px;
+
+    animation:
+        fadeUp 1s .2s ease both;
+}
+
+.hero-description{
+
+    max-width:610px;
+
+    font-size:15px;
+
+    line-height:2;
+
+    color:#817985;
+
+    animation:
+        fadeUp 1s .3s ease both;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:13px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+    animation:
+        fadeUp 1s .4s ease both;
+}
+
+.btn{
+
+    padding:
+        14px 22px;
+
+    border-radius:18px;
+
+    font-weight:bold;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.btn.primary{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e99abd,
+            #a99eea
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(190,140,190,.25);
+}
+
+.btn.secondary{
+
+    background:white;
+
+    border:
+        1px solid
+        #eadbe6;
+
+    color:#7b7380;
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.02);
+}
+
+
+/* =========================================================
+   HERO PROFILE CARD
+========================================================= */
+
+.hero-visual{
+
+    position:relative;
+
+    animation:
+        fadeIn 1.2s .3s ease both;
+}
+
+.profile-card{
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(255,241,248,.91)
+        );
+
+    border:
+        1px solid
+        #ead6e4;
+
+    border-radius:45px;
+
+    padding:30px;
+
+    box-shadow:
+        20px 25px 70px
+        rgba(150,110,145,.16);
+
+    transform:rotate(2deg);
+
+    transition:.5s;
+}
+
+.profile-card:hover{
+
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+}
+
+.card-decoration{
+
+    position:absolute;
+
+    font-size:35px;
+}
+
+.card-decoration.one{
+
+    top:-22px;
+    right:30px;
+
+    animation:
+        float 3s infinite ease-in-out;
+}
+
+.card-decoration.two{
+
+    bottom:20px;
+    left:-18px;
+
+    animation:
+        float 4s 1s infinite ease-in-out;
+}
+
+.avatar{
+
+    height:340px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffdce9,
+            #e5e0ff,
+            #d8f2ff
+        );
+
+    box-shadow:
+        inset 0 0 50px
+        rgba(255,255,255,.7);
+}
+
+.avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center 22%;
+
+    display:block;
+
+    transition:
+        transform .7s ease;
+}
+
+.profile-card:hover
+.avatar img{
+
+    transform:
+        scale(1.045);
+}
+
+.card-info{
+
+    margin-top:20px;
+}
+
+.card-info h3{
+
+    font-family:Georgia,serif;
+
+    font-size:25px;
+}
+
+.card-info p{
+
+    color:#918692;
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+.mini-tags{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-top:15px;
+}
+
+.mini-tags span{
+
+    padding:
+        7px 10px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    color:#9b79a0;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+section{
+    scroll-margin-top:100px;
+}
+
+.section{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+        110px 25px;
+}
+
+.section-label{
+
+    color:#d982a9;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.section-title{
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(40px,6vw,65px);
+
+    color:#514957;
+
+    margin-bottom:25px;
+}
+
+.section-title span{
+
+    color:#9990dc;
+
+    font-style:italic;
+}
+
+.section-intro{
+
+    max-width:760px;
+
+    color:#837b87;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-box{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:30px;
+}
+
+.about-card{
+
+    padding:35px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    border:
+        1px solid
+        #eadde7;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(150,120,150,.08);
+}
+
+.about-card.big{
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff3f8,
+            #f5f2ff
+        );
+}
+
+.about-card h3{
+
+    font-family:Georgia,serif;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+}
+
+.about-card p{
+
+    color:#807784;
+
+    line-height:1.9;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+.quote{
+
+    font-family:Georgia,serif;
+
+    font-style:italic;
+
+    color:#a27c9b;
+
+    font-size:21px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.stat{
+
+    text-align:center;
+
+    padding:
+        25px 15px;
+
+    background:white;
+
+    border:
+        1px solid
+        #eadde6;
+
+    border-radius:25px;
+
+    transition:.3s;
+}
+
+.stat:hover{
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(170,130,160,.12);
+}
+
+.stat .emoji{
+
+    font-size:28px;
+}
+
+.stat h3{
+
+    margin-top:8px;
+
+    font-size:15px;
+}
+
+.stat p{
+
+    color:#9a9099;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.skill{
+
+    position:relative;
+
+    padding:30px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    border:
+        1px solid
+        #eadde7;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.skill::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    background:#fce3ef;
+
+    right:-60px;
+    bottom:-60px;
+
+    opacity:.5;
+}
+
+.skill:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(160,120,160,.09);
+}
+
+.skill-icon{
+
+    font-size:34px;
+
+    margin-bottom:17px;
+}
+
+.skill h3{
+
+    font-family:Georgia,serif;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+}
+
+.skill p{
+
+    color:#827985;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.project{
+
+    padding:32px;
+
+    border-radius:32px;
+
+    background:white;
+
+    border:
+        1px solid
+        #e9dce6;
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.project::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    right:22px;
+    top:18px;
+
+    font-size:25px;
+
+    color:#eab1cc;
+
+    animation:
+        float 4s infinite ease-in-out;
+}
+
+.project:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(150,120,150,.12);
+}
+
+.project-number{
+
+    color:#d786aa;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+.project h3{
+
+    font-family:Georgia,serif;
+
+    font-size:27px;
+
+    margin:
+        13px 0;
+}
+
+.project p{
+
+    color:#817985;
+
+    line-height:1.9;
+
+    font-size:13px;
+}
+
+.tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:20px;
+}
+
+.tag{
+
+    padding:
+        7px 11px;
+
+    border-radius:20px;
+
+    background:#faf0f6;
+
+    color:#ae789b;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey{
+
+    position:relative;
+
+    margin-top:50px;
+}
+
+.journey::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f0b7d0,
+            #c8c1f1,
+            #bde5ee
+        );
+}
+
+.journey-item{
+
+    position:relative;
+
+    padding-left:65px;
+
+    margin-bottom:65px;
+}
+
+.journey-dot{
+
+    position:absolute;
+
+    left:5px;
+
+    top:2px;
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:
+        2px solid
+        #e6aac7;
+
+    box-shadow:
+        0 5px 15px
+        rgba(210,150,180,.2);
+
+    font-size:12px;
+}
+
+.journey-year{
+
+    color:#9b91d8;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+.journey-item h3{
+
+    font-family:Georgia,serif;
+
+    font-size:29px;
+
+    margin:
+        10px 0 12px;
+}
+
+.journey-item p{
+
+    max-width:800px;
+
+    color:#7f7782;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story{
+
+    margin-top:25px;
+
+    padding:45px;
+
+    border-radius:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f7,
+            #f2efff,
+            #edf9ff
+        );
+
+    border:
+        1px solid
+        #eadce8;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.story::after{
+
+    content:"♡";
+
+    position:absolute;
+
+    right:35px;
+    top:20px;
+
+    font-size:90px;
+
+    color:
+        rgba(220,150,185,.16);
+}
+
+.story h3{
+
+    font-family:Georgia,serif;
+
+    font-size:32px;
+
+    margin-bottom:20px;
+}
+
+.story p{
+
+    color:#77707b;
+
+    line-height:2;
+
+    font-size:14px;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+.goals{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.goal{
+
+    padding:32px;
+
+    border-radius:30px;
+
+    background:white;
+
+    border:
+        1px solid
+        #eadde7;
+
+    transition:.3s;
+}
+
+.goal:hover{
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(150,120,150,.1);
+}
+
+.goal h3{
+
+    font-family:Georgia,serif;
+
+    font-size:23px;
+
+    margin-bottom:12px;
+}
+
+.goal p{
+
+    color:#817985;
+
+    line-height:1.9;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.contact-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:25px;
+
+    min-height:135px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    border:
+        1px solid
+        #eadde7;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(160,125,155,.07);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+
+    overflow:hidden;
+}
+
+.contact-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    right:-45px;
+    bottom:-50px;
+
+    border-radius:50%;
+
+    background:#fbe4ef;
+
+    opacity:.5;
+}
+
+.contact-card:hover{
+
+    transform:
+        translateY(-8px);
+
+    background:#fff;
+
+    box-shadow:
+        0 20px 45px
+        rgba(160,125,155,.15);
+}
+
+.contact-icon{
+
+    width:52px;
+    height:52px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f7,
+            #efebff
+        );
+
+    font-size:24px;
+}
+
+.contact-label{
+
+    color:#b087a3;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+}
+
+.contact-card h3{
+
+    font-family:Georgia,serif;
+
+    font-size:17px;
+
+    color:#5d5561;
+
+    margin-bottom:5px;
+}
+
+.contact-card p{
+
+    color:#958b95;
+
+    font-size:11px;
+}
+
+.contact-arrow{
+
+    position:absolute;
+
+    right:18px;
+    top:17px;
+
+    color:#d995b6;
+
+    font-size:18px;
+
+    transition:.3s;
+}
+
+.contact-card:hover
+.contact-arrow{
+
+    transform:
+        translate(3px,-3px);
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing{
+
+    text-align:center;
+
+    padding:
+        100px 30px;
+
+    border-radius:45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe9f3,
+            #e9e5ff,
+            #e2f7ff
+        );
+
+    border:
+        1px solid
+        #eadde7;
+}
+
+.closing .flower{
+
+    font-size:45px;
+
+    animation:
+        float 3s infinite ease-in-out;
+}
+
+.closing h2{
+
+    font-family:Georgia,serif;
+
+    font-size:
+        clamp(40px,6vw,65px);
+
+    margin:
+        20px 0;
+}
+
+.closing h2 span{
+
+    color:#d981aa;
+
+    font-style:italic;
+}
+
+.closing p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#7d7580;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+        35px 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#928992;
+
+    font-size:12px;
+
+    border-top:
+        1px solid
+        #eadde6;
+}
+
+footer strong{
+
+    color:#625a67;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:
+            scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1);
+    }
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        padding-top:140px;
+    }
+
+    .about-box{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .skills,
+    .projects,
+    .goals{
+
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .hero{
+
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .hero h1{
+
+        font-size:58px;
+    }
+
+    .avatar{
+
+        height:300px;
+    }
+
+    .section{
+
+        padding:
+            80px 20px;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .story{
+
+        padding:28px;
+    }
+
+    footer{
+
+        flex-direction:column;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     DECORATIONS
+========================================================= -->
+
+<div class="cloud one"></div>
+<div class="cloud two"></div>
+
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">♡</div>
+<div class="sparkle s4">✦</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+TABINA<span>♡</span>
+</div>
+
+<ul>
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
+<a href="#skills">Skills</a>
+</li>
+
+<li>
+<a href="#projects">Projects</a>
+</li>
+
+<li>
+<a href="#journey">Journey</a>
+</li>
+
+<li>
+<a href="#goals">Future</a>
+</li>
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="home" class="hero">
+
+<div>
+
+<div class="hero-badge">
+🌷 Welcome to my portfolio
+</div>
+
+<h1>
+Hi, I'm
+<span>Tabina.</span>
+</h1>
+
+<div class="hero-subtitle">
+Student • Creative • Technology Enthusiast
+</div>
+
+<p class="hero-description">
+
+Halo! Aku Tabina Mauliddya Balqiis, siswi kelas
+10.11 yang memiliki rasa penasaran besar terhadap
+technology, programming, robotics, mathematics,
+multimedia, dan berbagai hal kreatif lainnya.
+
+Aku percaya bahwa belajar bukan tentang harus
+langsung sempurna. Belajar adalah tentang berani
+mencoba, membuat kesalahan, mencari tahu,
+dan mencoba lagi.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#journey" class="btn primary">
+♡ Explore My Journey
+</a>
+
+<a href="#projects" class="btn secondary">
+See My Projects ✦
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="hero-visual">
+
+<div class="profile-card">
+
+<div class="card-decoration one">
+🌸
+</div>
+
+<div class="card-decoration two">
+✦
+</div>
+
+<div class="avatar">
+
+<img
+src="IMG_1160.jpeg"
+alt="Foto Tabina"
+>
+
+</div>
+
+<div class="card-info">
+
+<h3>
+Tabina Mauliddya Balqiis
+</h3>
+
+<p>
+Class 10.11 • Student • Creator
+</p>
+
+<div class="mini-tags">
+
+<span>
+💻 Coding
+</span>
+
+<span>
+🤖 Robotics
+</span>
+
+<span>
+🎨 Multimedia
+</span>
+
+<span>
+🧠 Mathematics
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about" class="section">
+
+<div class="section-label">
+01 / ABOUT ME
+</div>
+
+<h2 class="section-title">
+A little bit <span>about me.</span>
+</h2>
+
+<p class="section-intro">
+
+Aku adalah seseorang yang senang mengetahui bagaimana sesuatu
+bekerja. Dari sebuah website sederhana sampai robotics,
+computer vision, dan programming, selalu ada sesuatu yang
+membuatku penasaran untuk dipelajari lebih jauh.
+
+</p>
+
+
+<div class="about-box">
+
+<div class="about-card big">
+
+<div class="quote">
+
+"Curiosity makes ordinary
+things become interesting."
+
+</div>
+
+<br>
+
+<p>
+
+Aku suka proses ketika sebuah ide yang awalnya hanya ada
+di kepala perlahan berubah menjadi sesuatu yang bisa
+dilihat, dijalankan, dan dikembangkan.
+
+</p>
+
+</div>
+
+
+<div class="about-card">
+
+<h3>
+My little story 🌷
+</h3>
+
+<p>
+
+Halo! Aku Tabina Mauliddya Balqiis, siswi kelas 10.11.
+Saat ini aku sedang menjalani salah satu fase yang menurutku
+paling menarik: belajar banyak hal dan mencoba mencari tahu
+apa yang benar-benar ingin aku kembangkan di masa depan.
+
+</p>
+
+<p>
+
+Aku tertarik pada Computer Science, programming,
+mathematics, robotics, artificial intelligence, dan
+multimedia. Menurutku hal-hal tersebut memiliki satu
+kesamaan: semuanya membutuhkan rasa ingin tahu dan
+kemauan untuk terus mencoba.
+
+</p>
+
+<p>
+
+Aku juga percaya bahwa kreativitas tidak hanya milik
+orang yang menggambar atau membuat desain. Menulis kode,
+merancang sebuah project, menemukan solusi, membuat
+presentasi, bahkan memikirkan cara baru untuk menyelesaikan
+masalah juga merupakan bentuk kreativitas.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="emoji">
+💻
+</div>
+
+<h3>
+Programming
+</h3>
+
+<p>
+Learning & Building
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="emoji">
+🤖
+</div>
+
+<h3>
+Robotics
+</h3>
+
+<p>
+Hardware + Software
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="emoji">
+🎨
+</div>
+
+<h3>
+Multimedia
+</h3>
+
+<p>
+Creative Expression
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="emoji">
+🌷
+</div>
+
+<h3>
+Curiosity
+</h3>
+
+<p>
+Always Exploring
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills" class="section">
+
+<div class="section-label">
+02 / SKILLS
+</div>
+
+<h2 class="section-title">
+Things I'm <span>learning.</span>
+</h2>
+
+<p class="section-intro">
+
+Kemampuan bukan sesuatu yang langsung selesai.
+Semua skill di bawah ini masih terus aku pelajari,
+latih, dan kembangkan melalui tugas, project,
+eksperimen, dan pengalaman.
+
+</p>
+
+
+<div class="skills">
+
+<div class="skill">
+
+<div class="skill-icon">
+💻
+</div>
+
+<h3>
+Web Development
+</h3>
+
+<p>
+
+Mempelajari HTML, CSS, dan JavaScript untuk membuat
+website serta memahami bagaimana sebuah halaman web
+bekerja dari struktur hingga tampilannya.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🐍
+</div>
+
+<h3>
+Python
+</h3>
+
+<p>
+
+Mempelajari Python untuk programming, problem solving,
+automation, dan berbagai eksperimen yang membantu
+mengembangkan cara berpikir secara logis.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🤖
+</div>
+
+<h3>
+Robotics
+</h3>
+
+<p>
+
+Mengeksplorasi Arduino, electronics, sensors,
+prototyping, dan hubungan antara software dengan
+hardware dalam sebuah sistem.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<div class="skill-icon">
+🧠
+</div>
+
+<h3>
+Computer Vision
+</h3>
+
+<p>
+
+Mengeksplorasi konsep computer vision,
+OpenCV, MediaPipe, dan bagaimana komputer
+dapat memproses informasi visual.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects" class="section">
+
+<div class="section-label">
+03 / PROJECTS
+</div>
+
+<h2 class="section-title">
+Things I've <span>built.</span>
+</h2>
+
+
+<div class="projects">
+
+
+<div class="project">
+
+<div class="project-number">
+PROJECT 01
+</div>
+
+<h3>
+✈️ RC Cessna 172
+</h3>
+
+<p>
+
+Project pembuatan pesawat RC Cessna 172 yang
+dikerjakan bersama tim. Project ini memperkenalkan
+proses pembagian tugas, perancangan, pembuatan,
+electronics, dan dokumentasi.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+Arduino
+</span>
+
+<span class="tag">
+Electronics
+</span>
+
+<span class="tag">
+RC
+</span>
+
+<span class="tag">
+Teamwork
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project">
+
+<div class="project-number">
+PROJECT 02
+</div>
+
+<h3>
+🖐️ Hand Gesture Voice
+</h3>
+
+<p>
+
+Eksperimen computer vision yang memanfaatkan
+kamera dan gesture tangan. Project ini membantu
+memahami bagaimana program dapat memproses
+informasi visual dan mengubahnya menjadi output.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+Python
+</span>
+
+<span class="tag">
+OpenCV
+</span>
+
+<span class="tag">
+MediaPipe
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project">
+
+<div class="project-number">
+PROJECT 03
+</div>
+
+<h3>
+☀️ Solar Tracker
+</h3>
+
+<p>
+
+Eksplorasi sistem solar tracker menggunakan sensor
+untuk mendeteksi arah sumber cahaya dan mengarahkan
+panel. Project ini menggabungkan sensor, automation,
+electronics, dan programming.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+Sensors
+</span>
+
+<span class="tag">
+Automation
+</span>
+
+<span class="tag">
+Engineering
+</span>
+
+</div>
+
+</div>
+
+
+<div class="project">
+
+<div class="project-number">
+PROJECT 04
+</div>
+
+<h3>
+🌸 Personal Portfolio
+</h3>
+
+<p>
+
+Website portfolio pribadi yang dibuat menggunakan
+HTML, CSS, dan JavaScript. Website ini menjadi tempat
+untuk mendokumentasikan kemampuan, pengalaman,
+project, dan perjalanan belajar.
+
+</p>
+
+<div class="tags">
+
+<span class="tag">
+HTML
+</span>
+
+<span class="tag">
+CSS
+</span>
+
+<span class="tag">
+JavaScript
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     JOURNEY
+========================================================= -->
+
+<section id="journey" class="section">
+
+<div class="section-label">
+04 / MY JOURNEY
+</div>
+
+<h2 class="section-title">
+A journey of <span>curiosity.</span>
+</h2>
+
+<p class="section-intro">
+
+Perjalanan ini belum selesai. Bahkan sebenarnya,
+aku merasa baru mulai. Setiap project, setiap
+kesalahan, setiap tugas, dan setiap hal baru
+yang dipelajari menjadi bagian kecil dari perjalanan
+yang membentuk cara berpikir dan cara melihat
+teknologi.
+
+</p>
+
+
+<div class="journey">
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🌱
+</div>
+
+<div class="journey-year">
+THE BEGINNING
+</div>
+
+<h3>
+Awalnya dari rasa penasaran.
+</h3>
+
+<p>
+
+Semua perjalanan biasanya dimulai dari satu pertanyaan
+sederhana. Bagiku, pertanyaan tersebut adalah:
+"Bagaimana sebenarnya teknologi bisa bekerja?"
+
+Aku mulai melihat bahwa hal-hal yang setiap hari
+digunakan ternyata memiliki proses yang panjang
+di baliknya. Website yang terlihat sederhana,
+aplikasi yang terasa instan, sampai robot yang
+bisa bergerak semuanya dibuat melalui proses
+berpikir dan eksperimen.
+
+Rasa penasaran tersebut perlahan berubah menjadi
+keinginan untuk mencoba membuat sesuatu sendiri.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+💻
+</div>
+
+<div class="journey-year">
+PROGRAMMING
+</div>
+
+<h3>
+Belajar berbicara dengan komputer.
+</h3>
+
+<p>
+
+Ketika mulai belajar programming, aku menyadari
+bahwa komputer tidak bisa menebak apa yang kita
+maksud.
+
+Instruksi harus diberikan dengan jelas.
+Satu karakter bisa membuat program tidak berjalan.
+Satu tanda kurung yang lupa bisa menghasilkan error.
+Dan terkadang masalah yang terlihat besar ternyata
+hanya disebabkan oleh satu kesalahan kecil.
+
+Dari sinilah aku mulai belajar bahwa programming
+bukan sekadar mengetik kode.
+
+Programming juga tentang kesabaran, logika,
+ketelitian, dan kemampuan untuk tidak menyerah
+ketika sesuatu tidak langsung berhasil.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🎨
+</div>
+
+<div class="journey-year">
+MIDDLE SCHOOL
+</div>
+
+<h3>
+Mengenal organisasi dan media.
+</h3>
+
+<p>
+
+Saat SMP, aku pernah mengikuti OSIS dan menjadi
+anggota bidang Media.
+
+Pengalaman tersebut menjadi salah satu kesempatan
+untuk belajar bahwa sebuah organisasi tidak hanya
+membutuhkan orang yang bisa bekerja, tetapi juga
+orang yang mampu berkomunikasi, berkolaborasi,
+dan menyampaikan informasi dengan baik.
+
+Dari sini aku mulai memahami bahwa teknologi dan
+kreativitas dapat berjalan berdampingan.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🤖
+</div>
+
+<div class="journey-year">
+ROBOTICS
+</div>
+
+<h3>
+Software bertemu hardware.
+</h3>
+
+<p>
+
+Ketika mulai mengenal robotics, dunia programming
+terasa menjadi lebih nyata.
+
+Sebuah kode tidak hanya menghasilkan tulisan
+di layar. Kode dapat digunakan untuk mengontrol
+sesuatu di dunia nyata.
+
+Aku mulai mengenal Arduino, sensor, electronics,
+dan berbagai konsep prototyping.
+
+Hal yang paling menarik adalah ketika sesuatu
+yang sebelumnya hanya berupa ide akhirnya dapat
+bergerak atau memberikan respons.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+✈️
+</div>
+
+<div class="journey-year">
+BUILDING
+</div>
+
+<h3>
+Mulai mengubah ide menjadi project.
+</h3>
+
+<p>
+
+Project seperti RC Cessna 172 menjadi pengalaman
+yang memperlihatkan bahwa membuat sesuatu bersama
+tim membutuhkan lebih dari sekadar kemampuan teknis.
+
+Ada pembagian tugas, komunikasi, perencanaan,
+penyesuaian ketika sesuatu tidak berjalan sesuai
+rencana, dan tentu saja proses mencoba berkali-kali.
+
+Dari project seperti ini aku belajar bahwa
+hasil akhir memang penting, tetapi proses di
+belakangnya juga sangat berharga.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🖐️
+</div>
+
+<div class="journey-year">
+COMPUTER VISION
+</div>
+
+<h3>
+Belajar membuat komputer memahami gambar.
+</h3>
+
+<p>
+
+Ketika mulai mengeksplorasi computer vision,
+aku menemukan sisi lain dari programming.
+
+Komputer dapat digunakan untuk memproses gambar
+dan video, menemukan pola, dan mendeteksi bagian
+tertentu dari sebuah visual.
+
+Eksperimen hand gesture menjadi salah satu
+pengalaman yang membuat konsep tersebut terasa
+lebih nyata.
+
+Dari sini muncul rasa penasaran yang lebih besar
+tentang berbagai kemungkinan teknologi di masa depan.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🎓
+</div>
+
+<div class="journey-year">
+HIGH SCHOOL
+</div>
+
+<h3>
+Memulai chapter baru.
+</h3>
+
+<p>
+
+Memasuki SMA menjadi kesempatan untuk mencoba
+lebih banyak hal.
+
+Selain pembelajaran di sekolah, aku ingin
+mengembangkan kemampuan melalui programming,
+robotics, mathematics, research, competition,
+dan organisasi.
+
+Aku juga memilih bidang Multimedia di OSIS SMA.
+
+Menurutku, multimedia menarik karena berada
+di antara teknologi dan kreativitas.
+
+Ada visual, komunikasi, digital tools, storytelling,
+dan kemampuan menyampaikan sebuah ide agar dapat
+dipahami orang lain.
+
+</p>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-dot">
+🌷
+</div>
+
+<div class="journey-year">
+TODAY
+</div>
+
+<h3>
+Masih belajar. Masih mencoba. Masih berkembang.
+</h3>
+
+<p>
+
+Sekarang aku masih berada di awal perjalanan.
+
+Masih ada banyak programming language yang ingin
+dipelajari, algoritma yang ingin dipahami,
+project yang ingin dibuat, kompetisi yang ingin
+dicoba, dan berbagai bidang computer science
+yang ingin dieksplorasi.
+
+Aku juga mulai memahami bahwa menjadi bagus
+dalam sesuatu membutuhkan waktu.
+
+Tidak semua hari terasa produktif.
+Tidak semua project berhasil.
+Tidak semua konsep langsung dimengerti.
+
+Tetapi setiap kali mencoba lagi, selalu ada
+sesuatu yang dipelajari.
+
+Dan mungkin, justru itulah bagian paling
+menarik dari perjalanan ini.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="story">
+
+<h3>
+♡ A note to my future self
+</h3>
+
+<p>
+
+Suatu hari nanti, mungkin aku akan membuka kembali
+website ini dan melihat betapa sederhananya project,
+skill, dan pengalaman yang tertulis di sini.
+
+Mungkin beberapa hal sudah berubah.
+Mungkin teknologi yang digunakan juga sudah berbeda.
+
+Tapi aku ingin tetap mengingat satu hal:
+
+aku pernah berada di titik ini.
+
+Di titik ketika masih banyak hal yang belum diketahui,
+masih sering bingung, masih sering menemukan error,
+dan masih belajar memahami apa yang sebenarnya
+ingin aku lakukan.
+
+Dan tidak apa-apa.
+
+Karena seseorang tidak harus sudah hebat
+untuk mulai membuat sesuatu.
+
+Kadang kita hanya perlu mulai.
+
+</p>
+
+<p>
+
+Jadi untuk versi diriku di masa depan:
+
+jangan lupa untuk tetap curious.
+Jangan takut mencoba sesuatu yang sulit.
+Jangan terlalu takut melakukan kesalahan.
+Dan jangan lupa menikmati prosesnya.
+
+Because there is always something new to build. ♡
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FUTURE
+========================================================= -->
+
+<section id="goals" class="section">
+
+<div class="section-label">
+05 / FUTURE
+</div>
+
+<h2 class="section-title">
+Dreams, goals & <span>possibilities.</span>
+</h2>
+
+<p class="section-intro">
+
+Aku belum tahu persis seperti apa perjalanan
+beberapa tahun ke depan. Tapi aku tahu bahwa
+aku ingin terus belajar dan menggunakan
+technology untuk menciptakan sesuatu.
+
+</p>
+
+
+<div class="goals">
+
+
+<div class="goal">
+
+<h3>
+🧠 Learn Deeper
+</h3>
+
+<p>
+
+Memperkuat mathematics, algorithms, programming,
+computer science, dan berbagai konsep yang menjadi
+dasar teknologi.
+
+</p>
+
+</div>
+
+
+<div class="goal">
+
+<h3>
+🤖 Build Bigger
+</h3>
+
+<p>
+
+Membuat project yang semakin kompleks dan
+menggabungkan software, hardware, data,
+dan kreativitas.
+
+</p>
+
+</div>
+
+
+<div class="goal">
+
+<h3>
+🏆 Keep Challenging Myself
+</h3>
+
+<p>
+
+Mengikuti berbagai kompetisi, research,
+organization, dan kegiatan yang dapat
+membantu mengembangkan kemampuan.
+
+</p>
+
+</div>
+
+
+<div class="goal">
+
+<h3>
+🌎 Create Something Meaningful
+</h3>
+
+<p>
+
+Suatu hari nanti ingin membuat teknologi
+yang tidak hanya terlihat menarik, tetapi
+juga benar-benar berguna dan memberikan
+dampak positif.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact" class="section">
+
+<div class="section-label">
+06 / LET'S CONNECT
+</div>
+
+<h2 class="section-title">
+Let's stay <span>connected.</span>
+</h2>
+
+<p class="section-intro">
+
+Kalau ingin melihat lebih banyak tentang kegiatan,
+project, dan perjalanan belajarku, kamu bisa
+menemukanku melalui beberapa platform di bawah ini. ♡
+
+</p>
+
+
+<div class="contact-grid">
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="https://instagram.com/travieiravella"
+target="_blank"
+rel="noopener noreferrer"
+class="contact-card"
+>
+
+<div class="contact-icon">
+📸
+</div>
+
+<div>
+
+<div class="contact-label">
+Instagram
+</div>
+
+<h3>
+@travieiravella
+</h3>
+
+<p>
+Follow my journey & activities
+</p>
+
+</div>
+
+<div class="contact-arrow">
+↗️
+</div>
+
+</a>
+
+
+<!-- EMAIL -->
+
+<a
+href="mailto:@itsjustmeetata"
+class="contact-card"
+>
+
+<div class="contact-icon">
+✉️
+</div>
+
+<div>
+
+<div class="contact-label">
+Email
+</div>
+
+<h3>
+@itsjustmeetata
+</h3>
+
+<p>
+For school & project inquiries
+</p>
+
+</div>
+
+<div class="contact-arrow">
+♡
+</div>
+
+</a>
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/6287849548144"
+target="_blank"
+rel="noopener noreferrer"
+class="contact-card"
+>
+
+<div class="contact-icon">
+💬
+</div>
+
+<div>
+
+<div class="contact-label">
+WhatsApp
+</div>
+
+<h3>
+0878 4954 8144
+</h3>
+
+<p>
+Let's talk & collaborate
+</p>
+
+</div>
+
+<div class="contact-arrow">
+↗️
+</div>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+
+<section class="section">
+
+<div class="closing">
+
+<div class="flower">
+🌷
+</div>
+
+<h2>
+Thank you for
+<span>visiting.</span>
+</h2>
+
+<p>
+
+Portfolio ini adalah snapshot kecil dari perjalanan
+belajarku saat ini.
+
+Masih banyak hal yang belum aku ketahui,
+masih banyak project yang belum dibuat,
+dan masih banyak cerita yang belum ditulis.
+
+But that's okay.
+
+Because the best part is knowing
+that the journey is still going. ♡
+
+</p>
+
+<br>
+
+<a
+href="#home"
+class="btn primary"
+>
+↑ Back to the top
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div>
+
+<strong>
+Tabina Mauliddya Balqiis
+</strong>
+
+• 10.11
+
+</div>
+
+<div>
+
+Made with ♡ curiosity & creativity
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealItems =
+document.querySelectorAll(
+    ".skill, .project, .journey-item, .about-card, .stat, .goal, .contact-card"
+);
+
+const observer =
+new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                    "translateY(0)";
+
+                observer.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.12
+    }
+);
+
+
+revealItems.forEach(item => {
+
+    item.style.opacity = "0";
+
+    item.style.transform =
+        "translateY(30px)";
+
+    item.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    observer.observe(item);
+
+});
+
+
+/* =========================================================
+   MOUSE SPARKLES
+========================================================= */
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if(
+            window.innerWidth > 700 &&
+            Math.random() > .93
+        ){
+
+            const sparkle =
+                document.createElement("span");
+
+            sparkle.innerHTML = "✦";
+
+            sparkle.style.position =
+                "fixed";
+
+            sparkle.style.left =
+                event.clientX + "px";
+
+            sparkle.style.top =
+                event.clientY + "px";
+
+            sparkle.style.pointerEvents =
+                "none";
+
+            sparkle.style.color =
+                "#e7a5c5";
+
+            sparkle.style.fontSize =
+                "10px";
+
+            sparkle.style.zIndex =
+                "9999";
+
+            document.body.appendChild(
+                sparkle
+            );
+
+
+            sparkle.animate(
+
+                [
+
+                    {
+                        opacity:1,
+
+                        transform:
+                            "translateY(0) scale(1)"
+                    },
+
+                    {
+                        opacity:0,
+
+                        transform:
+                            "translateY(-25px) scale(0)"
+                    }
+
+                ],
+
+                {
+                    duration:700,
+
+                    easing:"ease-out"
+                }
+
+            );
+
+
+            setTimeout(
+                () => sparkle.remove(),
+                700
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   NAVBAR SHADOW
+========================================================= */
+
+const navbar =
+document.querySelector("nav");
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 30){
+
+            navbar.style.boxShadow =
+                "0 15px 45px rgba(135,100,130,.18)";
+
+        }else{
+
+            navbar.style.boxShadow =
+                "0 15px 45px rgba(135,100,130,.12)";
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
